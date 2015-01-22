@@ -22,7 +22,6 @@ class MainApp
 
 	def main()
     puts @broker_host
-    puts @client_id
 		mrt = MyRoomTemper.new(@temper_path, @talkpi_path)
 		tp = TemperProducer.new(@broker_host, @client_id, @topic)
 		# message = mrt.get_temper()

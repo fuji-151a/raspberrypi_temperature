@@ -6,6 +6,7 @@ class TemperProducer
 	@producer = nil
 	@topic = nil
 	def initialize(broker_host, client_id, topic)
+    puts topic
 		@topic = topic
     puts @topic
     puts @client_id
