@@ -31,5 +31,11 @@ class MainApp
 	end
 end
 
-ma = MainApp.new("../conf.yml")
+# main 
+if ARGV.legnth != 1
+  puts "Please Input Config File"
+  exit
+end
+file_path = File.expand_path(ARGV[0])
+ma = MainApp.new(file_path)
 ma.main()
