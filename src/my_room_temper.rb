@@ -2,6 +2,7 @@
 # -*- encoding: utf-8 -*-
 # require 'yaml'
 
+# 温度計を測るclass
 class MyRoomTemper
 	@temper_path = nil
 	@talkpi_path = nil

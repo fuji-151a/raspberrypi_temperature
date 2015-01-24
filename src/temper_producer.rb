@@ -9,7 +9,13 @@ class TemperProducer
 	
   def initialize(broker_host, client_id, topic)
 		@topic = topic
-		@producer = Producer.new(get_broker_list, client_id, :type => :sync, :compression_codec => :gzip)
+		@producer = Poseidon::Producer.new(get_broker_list(broker_host), client_id, :type => :sync, :compression_codec => :gzip)
+	end
+
+	def send(message)
+    messages = []
+    messages << Poseidon::MessageToSend.new(@topic, message)
+		@producer.send_messages(messages)
 	end
 
   private 
@@ -23,9 +29,4 @@ class TemperProducer
     end
   end
 
-	def send(message)
-    message = []
-    message << Poseidon::MessageToSend.new(@topic, message)
-		@producer.send_messages(meesage)
-	end
 end

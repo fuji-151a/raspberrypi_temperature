@@ -1,5 +1,5 @@
 temper_path: hogehoge
 talkpi_path: hoge1
 topic: test-topic
-broker_host: 192.168.0.5:9092
+broker_host: localhost:9092
 client_id: test_id

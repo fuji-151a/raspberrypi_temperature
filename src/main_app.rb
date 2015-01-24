@@ -1,7 +1,7 @@
 #! /usr/bin/ruby
 # -*- encoding: utf-8 -*-
-require './my_room_temper'
-require './temper_producer'
+require './src/my_room_temper'
+require './src/temper_producer'
 require 'yaml'
 
 class MainApp
@@ -21,8 +21,6 @@ class MainApp
 	end
 
 	def main()
-    puts @broker_host
-    puts @client_id
 		mrt = MyRoomTemper.new(@temper_path, @talkpi_path)
 		tp = TemperProducer.new(@broker_host, @client_id, @topic)
 		# message = mrt.get_temper()
@@ -32,7 +30,7 @@ class MainApp
 end
 
 # main 
-if ARGV.legnth != 1
+if ARGV.length != 1
   puts "Please Input Config File"
   exit
 end
