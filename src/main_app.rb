@@ -23,13 +23,12 @@ class MainApp
 	def main()
 		mrt = MyRoomTemper.new(@temper_path, @talkpi_path)
 		tp = TemperProducer.new(@broker_host, @client_id, @topic)
-		# message = mrt.get_temper()
-    message = "test data"
+		message = mrt.get_temper()
 		tp.send(message)
 	end
 end
 
-# main 
+# main
 if ARGV.length != 1
   puts "Please Input Config File"
   exit

@@ -6,11 +6,11 @@ require 'poseidon'
 class TemperProducer
 	@producer = nil
 	@topic = nil
-	
+
   def initialize(broker_host, client_id, topic)
 		@topic = topic
 		@producer = Poseidon::Producer.new(get_broker_list(broker_host), client_id, :type => :sync, :compression_codec => :gzip)
-	end
+  end
 
 	def send(message)
     messages = []
@@ -18,7 +18,7 @@ class TemperProducer
 		@producer.send_messages(messages)
 	end
 
-  private 
+  private
   def get_broker_list(broker_host)
     broker_list = []
     broker_host = broker_host.gsub(" ", "")

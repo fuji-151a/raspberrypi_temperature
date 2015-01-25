@@ -1,6 +1,5 @@
 #! /usr/bin/ruby
 # -*- encoding: utf-8 -*-
-# require 'yaml'
 
 # 温度計を測るclass
 class MyRoomTemper
@@ -13,9 +12,8 @@ class MyRoomTemper
 	end
 
 	def get_temper()
-		value = `#{@temper_path}/temper`
-		array = value.split[2]
-		return array[2]
+		value = `sudo #{temper_path}/temper`
+		return value.chomp
 	end
 
 	def talk_temper(temper, speed = 0, volume = 0)
