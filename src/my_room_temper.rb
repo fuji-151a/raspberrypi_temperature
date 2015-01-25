@@ -12,7 +12,7 @@ class MyRoomTemper
 	end
 
 	def get_temper()
-		value = `sudo #{temper_path}/temper`
+		value = `#{temper_path}/temper`
 		return value.chomp
 	end
 
